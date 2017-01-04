@@ -1,0 +1,82 @@
+<!--
+
+		Chutiya hi hai sala
+		
+-->
+
+<html>
+<head>
+<title>Time since Azher left</title>
+<style>
+body{
+	background-color: #ccc5b9;
+	color: #252422;
+	text-align:center;
+	font-family: calibri;
+	font-size: 30px;
+}
+h3{
+	font-size: 40px;
+	color: #C80000;
+}
+#days, #hours, #minutes, #seconds{
+	color: #eb5e28;
+}
+#main{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	height:500px;
+	width:900px;
+	margin:auto;
+	position: absolute;
+}
+#stand{
+	font-size: 22px;
+	font-style: italic;
+}
+.smaller{
+	font-size:22px;
+	font-style:italic;
+	}
+</style>	
+
+</head>
+<body>
+<div id="main">
+<h3>Time since Azher left the poopers,</h3>
+<p><span id="days"> </span> Days,
+<p><span id="hours"> </span> Hours,
+<p><span id="minutes"> </span> Minutes, <span class="smaller">and</span></p>
+<p><span id="seconds"> </span> Seconds.</p>
+<br><br>
+<p id="stand">This clock stands with Ahmed. #iStandWithAhmed</p>
+</div>
+<script type="text/javascript">
+function set(){
+
+	var then = new Date(2016, 10, 19, 8, 37, 00);
+	var now = new Date();
+	
+	//var seconds = Math.floor((now-then)/1000);
+	//var minutes = Math.floor(seconds/60);
+	//var hours = Math.floor(minutes/60);
+	//var days = Math.floor(hours/24);
+	
+	var days = Math.floor(((now-then)/1000)/86400);
+	var hours = Math.floor(((now-then)/1000)/3600) % 24;
+	var minutes = Math.floor(((now-then)/1000)/60) % 60;
+	var seconds = Math.floor((now-then)/1000) % 60;
+
+	document.getElementById('days').innerHTML = days.toLocaleString();
+	document.getElementById('hours').innerHTML = hours.toLocaleString();
+	document.getElementById('minutes').innerHTML = minutes.toLocaleString();
+	document.getElementById('seconds').innerHTML = seconds.toLocaleString();
+	
+	setTimeout(set, 1000);
+}
+set();
+</script>
+</body>
+</html>
